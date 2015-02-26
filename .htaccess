@@ -1,0 +1,34 @@
+#php_flag display_errors "on"
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value log_errors on
+php_value error_log /home/stdesign/public_html/error_log
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+Options -Indexes
+DirectoryIndex index.php
+
+ErrorDocument 400 http://www.designtoolinc.com/index.php
+ErrorDocument 401 /index.php
+ErrorDocument 403 http://www.designtoolinc.com/index.php
+ErrorDocument 404 http://www.designtoolinc.com/index.php
+ErrorDocument 500 http://www.designtoolinc.com/index.php
+
+RewriteEngine on 
+RewriteCond %{HTTP_HOST} ^designtoolinc.com [NC] 
+RewriteRule ^(.*)$ http://www.designtoolinc.com/$1 [L,R=301]
+
+redirect 301 /videos.php http://www.designtoolinc.com/vids/index.php 
+
+redirect 301 /automatic-feed-screwdriver.php http://www.designtoolinc.com/handheld-automatic-screwdrivers/index.php
+redirect 301 /multi-spindled-fixtured-screw-systems.php http://www.designtoolinc.com/multiple-spindle-systems-robotics/index.php
+redirect 301 /automatic-screw-feed-fixed-components.php http://www.designtoolinc.com/fixtured-components/index.php
+redirect 301 /automatic-screw-presenter.php http://www.designtoolinc.com/automatic-fastener-presenting/index.php
+redirect 301 /pocket-cutter-screw-insertion-machine.php http://www.designtoolinc.com/handheld-automatic-screwdrivers/rigid_screw_feeders/index.php
+redirect 301 /automatic-brass-head-nail-gun.php http://www.designtoolinc.com/brass-head-nailing-systems/index.php
+redirect 301 /automatic-feed-escutchen-pin-gun.php http://www.designtoolinc.com/handheld-automatic-screwdrivers/automatic_pin_nailer_systems/index.php
+redirect 301 /automatic-nail-glide-gun.php http://www.designtoolinc.com/fixtured-components/nailer_or_pin_nailers/index.php
